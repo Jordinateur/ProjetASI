@@ -1,0 +1,32 @@
+package utilities;
+
+import hs.entity.MatchHockey;
+
+import java.util.List;
+
+public class MatchUtility {
+
+	
+	
+	
+	public static List<MatchHockey> getAll(){
+		
+		try {
+			matchManagerRemote = (MatchHockeyManagerRemote) lookupRemote("MatchHockeyManager",false);
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		List<MatchHockey> lm = matchManagerRemote.allMatchHockey(); 
+		MatchHockey[] mo = new MatchHockey[lm.size()];
+		int i = 0;
+		for (Iterator iterator = lm.iterator(); iterator.hasNext();) {
+			MatchHockey match = (MatchHockey) iterator.next();
+			mo[i] = match;
+			i++;
+		}
+
+		return null;
+		
+	}
+}

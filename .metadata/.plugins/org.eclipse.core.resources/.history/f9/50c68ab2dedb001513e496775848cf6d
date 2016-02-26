@@ -1,0 +1,15 @@
+package utilities;
+
+import hs.entity.MatchHockey;
+
+import java.util.List;
+
+public class MatchUtility {
+
+	
+	
+	
+	public List<MatchHockey>getAll(){
+		
+	}
+}

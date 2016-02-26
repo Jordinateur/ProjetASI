@@ -1,0 +1,55 @@
+package utilities;
+
+import hs.ejb.MatchHockeyManagerRemote;
+import hs.entity.MatchHockey;
+
+import java.util.Iterator;
+import java.util.List;
+
+import javax.naming.NamingException;
+import javax.swing.ListModel;
+
+public class MatchUtility {
+
+	
+	
+	
+	public static MatchHockey[] getAll(){
+		MatchHockeyManagerRemote matchManagerRemote = null;
+		try {
+			matchManagerRemote = (MatchHockeyManagerRemote) LookupUtility.lookupRemote("MatchHockeyManager",false);
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		List<MatchHockey> lm = matchManagerRemote.allMatchHockey(); 
+		MatchHockey[] mo = new MatchHockey[lm.size()];
+		int i = 0;
+		for (Iterator iterator = lm.iterator(); iterator.hasNext();) {
+			MatchHockey match = (MatchHockey) iterator.next();
+			mo[i] = match;
+			i++;
+		}
+
+		return mo;
+		
+	}
+
+	public static ListModel getEquipeA() {
+		MatchHockeyManagerRemote matchManagerRemote = null;
+		try {
+			matchManagerRemote = (MatchHockeyManagerRemote) LookupUtility.lookupRemote("MatchHockeyManager",false);
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		List<MatchHockey> lm = matchManagerRemote.allMatchHockey(); 
+		MatchHockey[] mo = new MatchHockey[lm.size()];
+		int i = 0;
+		for (Iterator iterator = lm.iterator(); iterator.hasNext();) {
+			MatchHockey match = (MatchHockey) iterator.next();
+			mo[i] = match;
+			i++;
+		}
+	}
+}

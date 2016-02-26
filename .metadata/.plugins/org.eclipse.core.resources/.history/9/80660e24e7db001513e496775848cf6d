@@ -1,0 +1,38 @@
+package utilities;
+
+import hs.ejb.EquipeManagerRemote;
+import hs.ejb.MatchHockeyManagerRemote;
+import hs.entity.Equipe;
+import hs.entity.MatchHockey;
+
+import java.util.Iterator;
+import java.util.List;
+
+import javax.naming.NamingException;
+
+public class EquipeUtility {
+
+	
+	
+	
+	public static Equipe[] getAll(){
+		EquipeManagerRemote equipeManagerRemote = null;
+		try {
+			equipeManagerRemote = (EquipeManagerRemote) LookupUtility.lookupRemote("EquipeManager",false);
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		List<Equipe> lm = equipeManagerRemote.allEquipe(); 
+		Equipe[] equipes = new Equipe[lm.size()];
+		int i = 0;
+		for (Iterator iterator = lm.iterator(); iterator.hasNext();) {
+			Equipe equipe = (Equipe) iterator.next();
+			equipes[i] = equipe;
+			i++;
+		}
+
+		return equipes;
+		
+	}
+}
