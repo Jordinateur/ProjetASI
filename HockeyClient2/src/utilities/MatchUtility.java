@@ -25,7 +25,7 @@ public class MatchUtility {
 		List<MatchHockey> lm = matchManagerRemote.allMatchHockey(); 
 		MatchHockey[] mo = new MatchHockey[lm.size()];
 		int i = 0;
-		for (Iterator iterator = lm.iterator(); iterator.hasNext();) {
+		for (Iterator<MatchHockey> iterator = lm.iterator(); iterator.hasNext();) {
 			MatchHockey match = (MatchHockey) iterator.next();
 			mo[i] = match;
 			i++;
@@ -35,6 +35,7 @@ public class MatchUtility {
 		
 	}
 
+	@SuppressWarnings("unused")
 	public static Equipe getEquipeAFrom(MatchHockey match) {
 		MatchHockeyManagerRemote matchManagerRemote = null;
 		try {
@@ -46,7 +47,7 @@ public class MatchUtility {
 		List<MatchHockey> lm = matchManagerRemote.allMatchHockey(); 
 		MatchHockey[] mo = new MatchHockey[lm.size()];
 		int i = 0;
-		for (Iterator iterator = lm.iterator(); iterator.hasNext();) {
+		for (Iterator<MatchHockey> iterator = lm.iterator(); iterator.hasNext();) {
 			MatchHockey m = (MatchHockey) iterator.next();
 			if(match.getId() == m.getId())
 			 return match.getEquipe1();
@@ -54,6 +55,7 @@ public class MatchUtility {
 		}
 		return null;
 	}
+	@SuppressWarnings("unused")
 	public static Equipe getEquipeBFrom(MatchHockey match) {
 		MatchHockeyManagerRemote matchManagerRemote = null;
 		try {
@@ -65,7 +67,7 @@ public class MatchUtility {
 		List<MatchHockey> lm = matchManagerRemote.allMatchHockey(); 
 		MatchHockey[] mo = new MatchHockey[lm.size()];
 		int i = 0;
-		for (Iterator iterator = lm.iterator(); iterator.hasNext();) {
+		for (Iterator<MatchHockey> iterator = lm.iterator(); iterator.hasNext();) {
 			MatchHockey m = (MatchHockey) iterator.next();
 			if(match.getId() == m.getId())
 			 return match.getEquipe2();

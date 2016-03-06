@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
+@SuppressWarnings("serial")
 @Entity
 @NamedQueries ({ 
 	@NamedQuery(name="findAllGardien", query="SELECT g FROM Gardien g"),

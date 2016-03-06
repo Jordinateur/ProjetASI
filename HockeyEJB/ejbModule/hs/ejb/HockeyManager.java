@@ -34,6 +34,7 @@ public class HockeyManager implements HockeyManagerRemote {
 		return em.find(Equipe.class, id);
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Equipe> allEquipe() {
 		return em.createNamedQuery("findAllEquipe").getResultList();
 	}

@@ -1,7 +1,5 @@
 package client;
 
-import hs.ejb.GardienManagerRemote;
-import hs.ejb.MatchHockeyManagerRemote;
 import hs.entity.Equipe;
 import hs.entity.Gardien;
 import hs.entity.MatchHockey;
@@ -12,22 +10,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.security.Security;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Properties;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
 import javax.swing.JApplet;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
-import javax.swing.event.ListDataListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -37,6 +28,7 @@ import utilities.EquipeUtility;
 import utilities.GardienUtility;
 import utilities.MatchUtility;
 
+@SuppressWarnings("serial")
 public class HockeyApplet extends JApplet {
 	private JTextField passField;
 	private JTextField loginField;
@@ -107,6 +99,7 @@ public class HockeyApplet extends JApplet {
 
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
+				@SuppressWarnings("unchecked")
 				JList<MatchHockey> lsm = (JList<MatchHockey>) e.getSource();
 				if (lsm.isSelectionEmpty())
 					return;
@@ -129,6 +122,7 @@ public class HockeyApplet extends JApplet {
 
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
+				@SuppressWarnings("unchecked")
 				JList<MatchHockey> lsm = (JList<MatchHockey>) e.getSource();
 				if (lsm.isSelectionEmpty())
 					return;

@@ -33,6 +33,7 @@ public class MatchHockeyManager implements MatchHockeyManagerRemote {
 		return em.find(MatchHockey.class, id);
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<MatchHockey> allMatchHockey() {
 		return em.createNamedQuery("findAllMatchHockey").getResultList();
 	}

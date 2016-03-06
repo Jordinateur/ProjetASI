@@ -1,9 +1,6 @@
 package hs.ejb;
 
-import hs.entity.MatchHockey;
 import hs.entity.Record;
-
-import java.util.List;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;

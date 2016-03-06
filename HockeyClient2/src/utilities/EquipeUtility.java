@@ -1,10 +1,8 @@
 package utilities;
 
 import hs.ejb.EquipeManagerRemote;
-import hs.ejb.EquipeManagerRemote;
 import hs.entity.Equipe;
 import hs.entity.Gardien;
-import hs.entity.Equipe;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -30,7 +28,7 @@ public class EquipeUtility {
 		List<Equipe> lm = equipeManagerRemote.allEquipe(); 
 		Equipe[] equipes = new Equipe[lm.size()];
 		int i = 0;
-		for (Iterator iterator = lm.iterator(); iterator.hasNext();) {
+		for (Iterator<Equipe> iterator = lm.iterator(); iterator.hasNext();) {
 			Equipe equipe = (Equipe) iterator.next();
 			equipes[i] = equipe;
 			i++;
@@ -68,6 +66,7 @@ public class EquipeUtility {
 		};
 	}
 
+	@SuppressWarnings("unused")
 	public static Collection<? extends Gardien> getGardiens(Equipe selectedEquipe) {
 		EquipeManagerRemote equipeManagerRemote = null;
 		try {
@@ -79,7 +78,7 @@ public class EquipeUtility {
 		List<Equipe> lm = equipeManagerRemote.allEquipe(); 
 		Equipe[] mo = new Equipe[lm.size()];
 		int i = 0;
-		for (Iterator iterator = lm.iterator(); iterator.hasNext();) {
+		for (Iterator<Equipe> iterator = lm.iterator(); iterator.hasNext();) {
 			Equipe m = (Equipe) iterator.next();
 			if(selectedEquipe.getId() == m.getId())
 			 return selectedEquipe.getGardiens();

@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
+@SuppressWarnings("serial")
 @Entity
 @NamedQueries ({ 
 	@NamedQuery(name="findAllMatchHockey", query="SELECT m FROM MatchHockey m"),

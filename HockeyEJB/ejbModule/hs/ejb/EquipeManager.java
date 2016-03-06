@@ -33,6 +33,7 @@ public class EquipeManager implements EquipeManagerRemote {
 		return em.find(Equipe.class, id);
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Equipe> allEquipe() {
 		return em.createNamedQuery("findAllEquipe").getResultList();
 	}

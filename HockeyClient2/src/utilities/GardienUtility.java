@@ -26,7 +26,7 @@ public class GardienUtility {
 		List<Gardien> lm = gardienManagerRemote.allGardien(); 
 		Gardien[] gardiens = new Gardien[lm.size()];
 		int i = 0;
-		for (Iterator iterator = lm.iterator(); iterator.hasNext();) {
+		for (Iterator<Gardien> iterator = lm.iterator(); iterator.hasNext();) {
 			Gardien gardien = (Gardien) iterator.next();
 			gardiens[i] = gardien;
 			i++;
