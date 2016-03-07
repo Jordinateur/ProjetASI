@@ -134,6 +134,11 @@ public class HockeyApplet extends JApplet {
 						Equipe selectedMatch = EquipeUtility.getAll()[i];
 						List<Gardien> gardiens = new ArrayList<Gardien>();
 						gardiens.addAll(EquipeUtility.getGardiens(selectedMatch));
+						
+						
+						
+						
+						
 						listGardien.setModel(GardienUtility.getListModel(gardiens));
 					}
 				}
