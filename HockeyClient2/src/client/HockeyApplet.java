@@ -154,12 +154,23 @@ public class HockeyApplet extends JApplet {
 				
 				Record r = RecordUtility.getRecordByMatchGardien(match, gardien);
 				System.out.println(r);
+				if(r == null){
+					r = new Record();
+					r.setGardien(gardien);
+					r.setMatch(match);
+				}
+				JPanel panel_2 = new JPanel();
+				panel_wrapper.add(panel_2, "name_174382287812010");
+				CardLayout cl = (CardLayout) panel_wrapper.getLayout();
+				cl.next(panel_wrapper);				
+				JLabel nomGardien = new JLabel(gardien.getSurnom()+"-"+gardien.getNum());
 				
+				panel_2.add(nomGardien);
+
 			}
 		});
 
 		
-
 	}
 
 }
