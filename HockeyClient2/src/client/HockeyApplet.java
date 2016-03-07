@@ -3,6 +3,7 @@ package client;
 import hs.entity.Equipe;
 import hs.entity.Gardien;
 import hs.entity.MatchHockey;
+import hs.entity.Record;
 
 import java.awt.CardLayout;
 import java.awt.FlowLayout;
@@ -27,6 +28,7 @@ import org.jboss.sasl.JBossSaslProvider;
 import utilities.EquipeUtility;
 import utilities.GardienUtility;
 import utilities.MatchUtility;
+import utilities.RecordUtility;
 
 @SuppressWarnings("serial")
 public class HockeyApplet extends JApplet {
@@ -83,7 +85,7 @@ public class HockeyApplet extends JApplet {
 
 		JButton btnSelectionner = new JButton("Selectionner");
 		panel_1.add(btnSelectionner);
-		JList<MatchHockey> listMatch = new JList<MatchHockey>(MatchUtility.getAll());
+		final JList<MatchHockey> listMatch = new JList<MatchHockey>(MatchUtility.getAll());
 		listMatch.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		panel_1.add(listMatch);
 
@@ -134,17 +136,27 @@ public class HockeyApplet extends JApplet {
 						Equipe selectedMatch = EquipeUtility.getAll()[i];
 						List<Gardien> gardiens = new ArrayList<Gardien>();
 						gardiens.addAll(EquipeUtility.getGardiens(selectedMatch));
-						
-						
-						
-						
-						
 						listGardien.setModel(GardienUtility.getListModel(gardiens));
 					}
 				}
 			}
 		});
 		
+		
+		btnSelectionner.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				MatchHockey match = listMatch.getSelectedValue();
+				Gardien gardien = listGardien.getSelectedValue();
+				
+				
+				
+				Record r = RecordUtility.getRecordByMatchGardien(match, gardien);
+				System.out.println(r);
+				
+			}
+		});
 
 		
 
