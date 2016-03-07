@@ -14,7 +14,8 @@ import javax.persistence.OneToMany;
 
 @SuppressWarnings("serial")
 @Entity
-@NamedQueries({ @NamedQuery(name = "findAllEquipe", query = "SELECT e FROM Equipe e"), })
+@NamedQueries({ 
+	@NamedQuery(name = "findAllEquipe", query = "SELECT e FROM Equipe e")})
 public class Equipe implements Serializable {
 
 	public Equipe() {

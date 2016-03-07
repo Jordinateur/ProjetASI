@@ -33,7 +33,6 @@ public class GardienManager implements GardienManagerRemote {
 		return em.find(Gardien.class, id);
 	}
 
-	@SuppressWarnings("unchecked")
 	public List<Gardien> allGardien() {
 		return em.createNamedQuery("findAllGardien").getResultList();
 	}

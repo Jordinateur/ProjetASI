@@ -53,6 +53,7 @@ public class TestServlet extends HttpServlet {
 			e1.printStackTrace();
 		}
 		List<Gardien> listEquipe = gardienManager.allGardien();
+		System.out.println("Liste Equipe taille = " + listEquipe.size());
 		if (listEquipe != null) {
 			for (Iterator<Gardien> iterator = listEquipe.iterator(); iterator.hasNext();) {
 				Gardien e = (Gardien) iterator.next();
