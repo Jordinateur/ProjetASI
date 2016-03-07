@@ -75,7 +75,17 @@ public class MatchHockey implements Serializable{
 
 
 	public String toString(){
-		return this.equipe1 + " - " + this.equipe2;
+		return "Match : " + this.equipe1.getNom() + " VS " + this.equipe2.getNom();
+	}
+
+
+	public String toJson() {
+		String json = "{";
+		json += "id : " + Integer.toString(this.id) + ",";
+		json += "stade : '" + this.stade + "',";
+		json += "equipe1 : '" + this.equipe1.getNom() + "',";
+		json += "equipe2 : '" + this.equipe2.getNom() + "',";
+		return json + " }";
 	}
 	
 	

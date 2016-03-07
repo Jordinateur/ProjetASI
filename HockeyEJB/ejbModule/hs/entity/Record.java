@@ -1,5 +1,7 @@
 package hs.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,7 +16,7 @@ import javax.persistence.OneToOne;
 	@NamedQuery(name="findRecordByMatchAndGardien", query="SELECT r FROM Record r WHERE r.gardien = :gardien AND r.match = :match"),
 	@NamedQuery(name="findAllRecord", query="SELECT r FROM Record r")
 })
-public class Record {
+public class Record implements Serializable{
 	
 	public MatchHockey getMatch() {
 		return match;
