@@ -14,7 +14,7 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 @LocalBean
-public class GardienManager implements GardienManagerRemote {
+public class GardienManager extends AbstractManager implements GardienManagerRemote {
 	@PersistenceContext
 	EntityManager em;
     /**
@@ -24,16 +24,7 @@ public class GardienManager implements GardienManagerRemote {
         // TODO Auto-generated constructor stub
     }
     
-    public Gardien add(Gardien gardien) {
-		em.persist(gardien);
-		return gardien;
-	}
-
-	public Gardien findGardien(int id) {
-		return em.find(Gardien.class, id);
-	}
-
-	public List<Gardien> allGardien() {
+	public List<Gardien> findAll() {
 		return em.createNamedQuery("findAllGardien").getResultList();
 	}
 

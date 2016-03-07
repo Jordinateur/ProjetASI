@@ -14,27 +14,16 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 @LocalBean
-public class EquipeManager implements EquipeManagerRemote {
+public class EquipeManager extends AbstractManager implements EquipeManagerRemote {
 	@PersistenceContext
 	EntityManager em;
     /**
      * Default constructor. 
      */
     public EquipeManager() {
-        // TODO Auto-generated constructor stub
     }
     
-    public Equipe add(Equipe equipe) {
-		em.persist(equipe);
-		return equipe;
-	}
-
-	public Equipe findEquipe(int id) {
-		return em.find(Equipe.class, id);
-	}
-
-	@SuppressWarnings("unchecked")
-	public List<Equipe> allEquipe() {
+	public List<Equipe> findAll() {
 		return em.createNamedQuery("findAllEquipe").getResultList();
 	}
 

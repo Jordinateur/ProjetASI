@@ -14,7 +14,7 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 @LocalBean
-public class MatchHockeyManager implements MatchHockeyManagerRemote {
+public class MatchHockeyManager extends AbstractManager implements MatchHockeyManagerRemote {
 	@PersistenceContext
 	EntityManager em;
     /**
@@ -24,17 +24,8 @@ public class MatchHockeyManager implements MatchHockeyManagerRemote {
         // TODO Auto-generated constructor stub
     }
     
-    public MatchHockey add(MatchHockey matchHockey) {
-		em.persist(matchHockey);
-		return matchHockey;
-	}
-
-	public MatchHockey findMatchHockey(int id) {
-		return em.find(MatchHockey.class, id);
-	}
-
 	@SuppressWarnings("unchecked")
-	public List<MatchHockey> allMatchHockey() {
+	public List<MatchHockey> findAll() {
 		return em.createNamedQuery("findAllMatchHockey").getResultList();
 	}
 

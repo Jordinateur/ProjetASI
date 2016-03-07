@@ -52,8 +52,8 @@ public class TestServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		List<Gardien> listEquipe = gardienManager.allGardien();
-		System.out.println("Liste Equipe taille = " + listEquipe.size());
+		List<Gardien> listEquipe = gardienManager.findAll();
+//		System.out.println("Liste Equipe taille = " + listEquipe.size());
 		if (listEquipe != null) {
 			for (Iterator<Gardien> iterator = listEquipe.iterator(); iterator.hasNext();) {
 				Gardien e = (Gardien) iterator.next();

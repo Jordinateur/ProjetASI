@@ -8,7 +8,7 @@ import javax.ejb.Remote;
 
 @Remote
 public interface EquipeManagerRemote {
-	public Equipe add(Equipe equipe);
-	public Equipe findEquipe(int id);
-	public List<Equipe> allEquipe();
+//	public Equipe add(Equipe equipe);
+//	public Equipe findEquipe(int id);
+	public List<Equipe> findAll();
 }
