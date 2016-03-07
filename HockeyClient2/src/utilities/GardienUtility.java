@@ -23,7 +23,7 @@ public class GardienUtility {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		List<Gardien> lm = gardienManagerRemote.allGardien(); 
+		List<Gardien> lm = gardienManagerRemote.findAll(); 
 		Gardien[] gardiens = new Gardien[lm.size()];
 		int i = 0;
 		for (Iterator<Gardien> iterator = lm.iterator(); iterator.hasNext();) {

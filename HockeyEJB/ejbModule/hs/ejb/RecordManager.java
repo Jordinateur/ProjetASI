@@ -1,5 +1,7 @@
 package hs.ejb;
 
+import java.util.List;
+
 import hs.entity.Record;
 
 import javax.ejb.LocalBean;
@@ -12,30 +14,27 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 @LocalBean
-public class RecordManager implements RecordManagerRemote {
+public class RecordManager extends AbstractManager implements RecordManagerRemote {
 	@PersistenceContext
 	EntityManager em;
     /**
      * Default constructor. 
      */
     public RecordManager() {
-        // TODO Auto-generated constructor stub
     }
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public Record add(Record record) {
-		em.persist(record);
-		return record;
+	public List<Record> findAll() {
+		return (List<Record>) em.createNamedQuery("findALlRecord").getResultList();
 	}
 
 	@Override
-	public Record findRecord(int id) {
-		return em.find(Record.class, id);		
-	}
-
-	@Override
-	public Record findRcordByMatch(int id) {
-		return (Record) em.createQuery("SELECT r FROM record WHERE match_id = "+id).getSingleResult();
+	public Record findRecordByMatchAndGardien(int idMatch, int idGardien) {
+		return (Record) em.createNamedQuery("findRecordByMatchAndGardien")
+				.setParameter("gardien", idGardien)
+				.setParameter("match", idMatch)
+				.getSingleResult();
 	}
 
 	

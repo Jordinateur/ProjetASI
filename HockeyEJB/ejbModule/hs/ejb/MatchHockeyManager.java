@@ -21,7 +21,6 @@ public class MatchHockeyManager extends AbstractManager implements MatchHockeyMa
      * Default constructor. 
      */
     public MatchHockeyManager() {
-        // TODO Auto-generated constructor stub
     }
     
 	@SuppressWarnings("unchecked")

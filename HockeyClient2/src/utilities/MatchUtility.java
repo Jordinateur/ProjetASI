@@ -22,7 +22,7 @@ public class MatchUtility {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		List<MatchHockey> lm = matchManagerRemote.allMatchHockey(); 
+		List<MatchHockey> lm = matchManagerRemote.findAll(); 
 		MatchHockey[] mo = new MatchHockey[lm.size()];
 		int i = 0;
 		for (Iterator<MatchHockey> iterator = lm.iterator(); iterator.hasNext();) {
@@ -44,7 +44,7 @@ public class MatchUtility {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		List<MatchHockey> lm = matchManagerRemote.allMatchHockey(); 
+		List<MatchHockey> lm = matchManagerRemote.findAll(); 
 		MatchHockey[] mo = new MatchHockey[lm.size()];
 		int i = 0;
 		for (Iterator<MatchHockey> iterator = lm.iterator(); iterator.hasNext();) {
@@ -64,7 +64,7 @@ public class MatchUtility {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		List<MatchHockey> lm = matchManagerRemote.allMatchHockey(); 
+		List<MatchHockey> lm = matchManagerRemote.findAll(); 
 		MatchHockey[] mo = new MatchHockey[lm.size()];
 		int i = 0;
 		for (Iterator<MatchHockey> iterator = lm.iterator(); iterator.hasNext();) {

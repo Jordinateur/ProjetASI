@@ -11,7 +11,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 @Entity
 @NamedQueries ({ 
-	@NamedQuery(name="findRecordByMatchGardien", query="SELECT r FROM Record r WHERE r.gardien = :gardien AND r.match = :match"),
+	@NamedQuery(name="findRecordByMatchAndGardien", query="SELECT r FROM Record r WHERE r.gardien = :gardien AND r.match = :match"),
+	@NamedQuery(name="findAllRecord", query="SELECT r FROM Record r")
 })
 public class Record {
 	

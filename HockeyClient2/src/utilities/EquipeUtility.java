@@ -25,7 +25,7 @@ public class EquipeUtility {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		List<Equipe> lm = equipeManagerRemote.allEquipe(); 
+		List<Equipe> lm = equipeManagerRemote.findAll(); 
 		Equipe[] equipes = new Equipe[lm.size()];
 		int i = 0;
 		for (Iterator<Equipe> iterator = lm.iterator(); iterator.hasNext();) {
@@ -75,7 +75,7 @@ public class EquipeUtility {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		List<Equipe> lm = equipeManagerRemote.allEquipe(); 
+		List<Equipe> lm = equipeManagerRemote.findAll(); 
 		Equipe[] mo = new Equipe[lm.size()];
 		int i = 0;
 		for (Iterator<Equipe> iterator = lm.iterator(); iterator.hasNext();) {
