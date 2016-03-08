@@ -1,12 +1,15 @@
 package hs.ejb;
 
-import java.util.List;
-
+import hs.entity.Gardien;
+import hs.entity.MatchHockey;
 import hs.entity.Record;
+
+import java.util.List;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 /**
@@ -30,11 +33,25 @@ public class RecordManager extends AbstractManager implements RecordManagerRemot
 	}
 
 	@Override
-	public Record findRecordByMatchAndGardien(int idMatch, int idGardien) {
-		return (Record) em.createNamedQuery("findRecordByMatchAndGardien")
-				.setParameter("gardien", idGardien)
-				.setParameter("match", idMatch)
-				.getSingleResult();
+	public Record findRecordByMatchAndGardien(MatchHockey match, Gardien gardien) {
+		try{
+			return (Record) em.createNamedQuery("findRecordByMatchAndGardien")
+					.setParameter("gardien", gardien)
+					.setParameter("match", match)
+					.getSingleResult();			
+		}catch(NoResultException e){
+			Record r = new Record();
+			r.setGardien(gardien);
+			r.setMatch(match);
+			return r;
+		}
+	}
+
+	@Override
+	public Record update(Record r) {
+		em.persist(r);
+		em.flush();
+		return r;
 	}
 
 	

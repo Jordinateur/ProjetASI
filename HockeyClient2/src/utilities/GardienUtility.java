@@ -3,7 +3,6 @@ package utilities;
 import hs.ejb.GardienManagerRemote;
 import hs.entity.Gardien;
 
-import java.util.Iterator;
 import java.util.List;
 
 import javax.naming.NamingException;
@@ -12,10 +11,7 @@ import javax.swing.event.ListDataListener;
 
 public class GardienUtility {
 
-	
-	
-	
-	public static Gardien[] getAll(){
+	private static GardienManagerRemote remote(){
 		GardienManagerRemote gardienManagerRemote = null;
 		try {
 			gardienManagerRemote = (GardienManagerRemote) LookupUtility.lookupRemote("GardienManager",false);
@@ -23,19 +19,15 @@ public class GardienUtility {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		List<Gardien> lm = gardienManagerRemote.findAll(); 
-		Gardien[] gardiens = new Gardien[lm.size()];
-		int i = 0;
-		for (Iterator<Gardien> iterator = lm.iterator(); iterator.hasNext();) {
-			Gardien gardien = (Gardien) iterator.next();
-			gardiens[i] = gardien;
-			i++;
-		}
-
-		return gardiens;
+		return gardienManagerRemote;
 		
 	}
 	
+	public static List<Gardien> getAll(){
+		List<Gardien> lm = remote().findAll(); 
+		return lm;
+		
+	}
 	public static ListModel<Gardien> getListModel(List<Gardien> e) {
 		final List<Gardien> gardiens = e;
 		return new ListModel<Gardien>() {

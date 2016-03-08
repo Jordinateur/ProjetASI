@@ -9,21 +9,25 @@ import javax.naming.NamingException;
 
 public class RecordUtility {
 
-	public static Record getRecordByMatchGardien(MatchHockey m, Gardien g){
+	private static RecordManagerRemote remote(){
 		RecordManagerRemote recordManagerRemote = null;
-		Record record = null;
 		try {
 			recordManagerRemote = (RecordManagerRemote) LookupUtility.lookupRemote("RecordManager",false);
-			if(recordManagerRemote == null){
-				System.out.println("fuck");
-			}
-			record = recordManagerRemote.findRecordByMatchAndGardien(m.getId(), g.getId()); 
 		} catch (NamingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		return record;
-		
+		return recordManagerRemote;
+	}
+	public static Record update(Record r){
+		return remote().update(r);
+	}
+	public static Record getRecordByMatchGardien(MatchHockey m, Gardien g){
+		Record record = null;
+		try{
+			record = remote().findRecordByMatchAndGardien(m, g); 				
+		}catch (Exception e){
+			e.printStackTrace();
+		}		
+		return record;		
 	}
 }

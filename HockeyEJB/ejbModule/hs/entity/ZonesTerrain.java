@@ -1,12 +1,14 @@
 package hs.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class ZonesTerrain {
+public class ZonesTerrain implements Serializable {
 	
 	ZonesTerrain(){
 		this.a = 0;
