@@ -29,7 +29,7 @@ public class RecordManager extends AbstractManager implements RecordManagerRemot
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Record> findAll() {
-		return (List<Record>) em.createNamedQuery("findALlRecord").getResultList();
+		return (List<Record>) em.createNamedQuery("findAllRecord").getResultList();
 	}
 
 	@Override
